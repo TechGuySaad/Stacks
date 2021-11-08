@@ -22,7 +22,7 @@ class stack
 
     void push(int);
     void pop();
-    void peek();
+    void print();
     
 
 };
@@ -73,8 +73,30 @@ void stack:: pop()
 
 }
 
-void stack :: peek()
+void stack :: print()
 {
+    node * printer;
+
+    printer = top;
+    cout<<"stack values: ";
+
+    while(printer != NULL)
+    {
+        cout<<printer->info <<" ";
+        
+        printer = printer -> next;
+
+
+        if(printer-> next == NULL)
+        {
+            cout<<printer->info<<endl;
+            return;
+        }
+        
+        
+
+    }
+
 
 }
 
@@ -86,11 +108,14 @@ int main()
     obj.push(2);
     obj.push(3);
     obj.push(4);
+    obj.print();
     obj.pop();
     obj.pop();
     obj.pop();
     obj.pop();
-    obj.pop();
+    obj.print(); // stack is empty here
+    cout<<endl;
+    obj.pop(); // popping out of an empty stack
 
 
 }
